@@ -16,20 +16,20 @@ app.post("/voice", (req, res) => {
   // Mensagem inicial do IVR
   const gather = response.gather({
     numDigits: 1,
-    action: "/voice/handle-key",  // pra onde Twilio envia a escolha
+    action: "/twilio/voice/handle-key",  // pra onde Twilio envia a escolha
     method: "POST"
   });
 
   gather.say(
-    "Olá, bem vindo ao Pathsaala Inn. " +
-    "Para falar com a recepção, aperte 1. " +
-    "Para informações sobre reservas, aperte 2. " +
-    "Para restaurante, aperte 3.",
-    { language: "pt-BR" }
+  "Welcome to Pathsaala Inn. " +
+  "To speak with the front desk, press 1. " +
+  "For reservation information, press 2. " +
+  "For the restaurant, press 3.",
+  { language: "en-US" }
   );
 
   // Se o caller não apertar nada:
-  response.redirect("/voice");
+  response.redirect("/twilio/voice");
 
   res.type("text/xml");
   res.send(response.toString());
@@ -41,16 +41,16 @@ app.post("/voice/handle-key", (req, res) => {
   const response = new VoiceResponse();
 
   if (digit === "1") {
-    response.say("Você escolheu recepção. Sua ligação será transferida.", { language: "pt-BR" });
-    // Aqui você poderia usar <Dial> para algum número real
-  } else if (digit === "2") {
-    response.say("Você escolheu reservas. Em breve, teremos um atendente.", { language: "pt-BR" });
-  } else if (digit === "3") {
-    response.say("Você escolheu restaurante. Um atendente irá falar com você.", { language: "pt-BR" });
-  } else {
-    response.say("Opção inválida. Vamos tentar novamente.", { language: "pt-BR" });
-    response.redirect("/voice");
-  }
+  response.say("You chose front desk. Your call will be transferred.", { language: "en-US" });
+} else if (digit === "2") {
+  response.say("You chose reservations. An agent will be with you shortly.", { language: "en-US" });
+} else if (digit === "3") {
+  response.say("You chose restaurant. An agent will be with you shortly.", { language: "en-US" });
+} else {
+  response.say("Invalid option. Let’s try again.", { language: "en-US" });
+  response.redirect("/twilio/voice");
+}
+
 
   res.type("text/xml");
   res.send(response.toString());
