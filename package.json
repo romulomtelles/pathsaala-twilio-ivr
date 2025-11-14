@@ -1,0 +1,26 @@
+{
+  "name": "pathsaala-twilio-ivr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romulomtelles/pathsaala-twilio-ivr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/romulomtelles/pathsaala-twilio-ivr/issues"
+  },
+  "homepage": "https://github.com/romulomtelles/pathsaala-twilio-ivr#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "twilio": "^5.10.5"
+  }
+}
