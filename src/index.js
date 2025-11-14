@@ -91,14 +91,14 @@ app.post("/voice/hours", (req, res) => {
   if (digit === "1") {
     // TODO: set your STAFF HOURS here
     response.say(
-      "Our staff hours are: ", // <- complete this sentence with your real hours
+      "Our staff hours are: 9:00 AM to 5:00 PM", // <- complete this sentence with your real hours
       { language: "en-US" }
     );
 
   } else if (digit === "2") {
     // TODO: set your CHECK IN / CHECK OUT HOURS here
     response.say(
-      "Our check in and check out hours are: ", // <- complete this sentence with your real hours
+      "Our check in is 3:00 PM and check out is 11:00 AM ", // <- complete this sentence with your real hours
       { language: "en-US" }
     );
 
